@@ -8,7 +8,7 @@ assert2(cr.plugins_, "cr.plugins_ not created");
 // Plugin class
 // *** CHANGE THE PLUGIN ID HERE *** - must match the "id" property in edittime.js
 //          vvvvvvvv
-cr.plugins_.MyPlugin = function(runtime)
+cr.plugins_.empty = function(runtime)
 {
 	this.runtime = runtime;
 };
@@ -18,7 +18,7 @@ cr.plugins_.MyPlugin = function(runtime)
 	/////////////////////////////////////
 	// *** CHANGE THE PLUGIN ID HERE *** - must match the "id" property in edittime.js
 	//                            vvvvvvvv
-	var pluginProto = cr.plugins_.MyPlugin.prototype;
+	var pluginProto = cr.plugins_.empty.prototype;
 		
 	/////////////////////////////////////
 	// Object type class
@@ -101,14 +101,6 @@ cr.plugins_.MyPlugin = function(runtime)
 	// Conditions
 	function Cnds() {};
 
-	// the example condition
-	Cnds.prototype.MyCondition = function (myparam)
-	{
-		// return true if number is positive
-		return myparam >= 0;
-	};
-	
-	// ... other conditions here ...
 	
 	pluginProto.cnds = new Cnds();
 	
@@ -116,14 +108,7 @@ cr.plugins_.MyPlugin = function(runtime)
 	// Actions
 	function Acts() {};
 
-	// the example action
-	Acts.prototype.MyAction = function (myparam)
-	{
-		// alert the message
-		alert(myparam);
-	};
-	
-	// ... other actions here ...
+
 	
 	pluginProto.acts = new Acts();
 	
@@ -131,14 +116,6 @@ cr.plugins_.MyPlugin = function(runtime)
 	// Expressions
 	function Exps() {};
 	
-	// the example expression
-	Exps.prototype.MyExpression = function (ret)	// 'ret' must always be the first parameter - always return the expression's result through it!
-	{
-		ret.set_int(1337);				// return our value
-		// ret.set_float(0.5);			// for returning floats
-		// ret.set_string("Hello");		// for ef_return_string
-		// ret.set_any("woo");			// for ef_return_any, accepts either a number or string
-	};
 	
 	// ... other expressions here ...
 	

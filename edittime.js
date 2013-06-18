@@ -1,26 +1,26 @@
 ﻿function GetPluginSettings()
 {
 	return {
-		"name":			"MyPlugin",				// as appears in 'insert object' dialog, can be changed as long as "id" stays the same
-		"id":			"MyPlugin",				// this is used to identify this plugin and is saved to the project; never change it
-		"version":		"1.0",					// (float in x.y format) Plugin version - C2 shows compatibility warnings based on this
-		"description":	"<appears at the bottom of the insert object dialog>",
-		"author":		"<your name/organisation>",
-		"help url":		"<your website or a manual entry on Scirra.com>",
+		"name":			"Empty Game Object",				// as appears in 'insert object' dialog, can be changed as long as "id" stays the same
+		"id":			"empty",				// this is used to identify this plugin and is saved to the project; never change it
+		"version":		"0.1",					// (float in x.y format) Plugin version - C2 shows compatibility warnings based on this
+		"description":	"Empty game object",
+		"author":		"JohnnySheffield",
+		"help url":		"",
 		"category":		"General",				// Prefer to re-use existing categories, but you can set anything here
 		"type":			"world",				// either "world" (appears in layout and is drawn), else "object"
 		"rotatable":	true,					// only used when "type" is "world".  Enables an angle property on the object.
 		"flags":		0						// uncomment lines to enable flags...
 					//	| pf_singleglobal		// exists project-wide, e.g. mouse, keyboard.  "type" must be "object".
 					//	| pf_texture			// object has a single texture (e.g. tiled background)
-					//	| pf_position_aces		// compare/set/get x, y...
+						| pf_position_aces		// compare/set/get x, y...
 					//	| pf_size_aces			// compare/set/get width, height...
-					//	| pf_angle_aces			// compare/set/get angle (recommended that "rotatable" be set to true)
+						| pf_angle_aces			// compare/set/get angle (recommended that "rotatable" be set to true)
 					//	| pf_appearance_aces	// compare/set/get visible, opacity...
 					//	| pf_tiling				// adjusts image editor features to better suit tiled images (e.g. tiled background)
 					//	| pf_animations			// enables the animations system.  See 'Sprite' for usage
 					//	| pf_zorder_aces		// move to top, bottom, layer...
-					//  | pf_nosize				// prevent resizing in the editor
+					    | pf_nosize				// prevent resizing in the editor
 					//	| pf_effects			// allow WebGL shader effects to be added
 					//  | pf_predraw			// set for any plugin which draws and is not a sprite (i.e. does not simply draw
 												// a single non-tiling image the size of the object) - required for effects to work properly
@@ -54,9 +54,8 @@
 //				description,		// appears in event wizard dialog when selected
 //				script_name);		// corresponding runtime function name
 				
-// example				
-AddNumberParam("Number", "Enter a number to test if positive.");
-AddCondition(0, cf_none, "Is number positive", "My category", "{0} is positive", "Description for my condition!", "MyCondition");
+
+
 
 ////////////////////////////////////////
 // Actions
@@ -68,10 +67,6 @@ AddCondition(0, cf_none, "Is number positive", "My category", "{0} is positive",
 //			 display_str,		// as appears in event sheet - use {0}, {1} for parameters and also <b></b>, <i></i>
 //			 description,		// appears in event wizard dialog when selected
 //			 script_name);		// corresponding runtime function name
-
-// example
-AddStringParam("Message", "Enter a string to alert.");
-AddAction(0, af_none, "Alert", "My category", "Alert {0}", "Description for my action!", "MyAction");
 
 ////////////////////////////////////////
 // Expressions
@@ -85,7 +80,6 @@ AddAction(0, af_none, "Alert", "My category", "Alert {0}", "Description for my a
 //				 description);	// description in expressions panel
 
 // example
-AddExpression(0, ef_return_number, "Leet expression", "My category", "MyExpression", "Return the number 1337.");
 
 ////////////////////////////////////////
 ACESDone();
@@ -101,7 +95,7 @@ ACESDone();
 // new cr.Property(ept_link,		name,	link_text,		description, "firstonly")		// has no associated value; simply calls "OnPropertyChanged" on click
 
 var property_list = [
-	new cr.Property(ept_integer, 	"My property",		77,		"An example property.")
+	
 	];
 	
 // Called by IDE when a new object type is to be created
